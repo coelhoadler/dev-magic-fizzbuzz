@@ -29,7 +29,6 @@ class ViewFizzBuzz {
         button.appendChild(document.createTextNode(label));
         button.setAttribute("class", "btn " + classButton);
         button.setAttribute("type", "button");
-        button.setAttribute("value", number);
 
         return button;        
     }

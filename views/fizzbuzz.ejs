@@ -8,21 +8,21 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon.png">
 </head>
 <body class="container">
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container" class="pull-left">
-        <h1>FizzBuzz</h1>
-        <div class="pull-right" id="counters"></div>
+        <div>
+            <h1>FizzBuzz</h1>
+            <div class="pull-right" id="counters"></div>
+        </div>    
     </nav>
 
     <div class="row">
        <div class="col-md-12" id="numbers"></div>
-    </div> 
+    </div>
 
     <script src="/js/FizzBuzz.js"></script>
     <script src="/js/ViewFizzBuzz.js"></script>
     <script>
-        let fizzBuzz = new FizzBuzz(0, 100);
+        let fizzBuzz = new FizzBuzz(1, 100);
     </script>
 </body>
 </html>
