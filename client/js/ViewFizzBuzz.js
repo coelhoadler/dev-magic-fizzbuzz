@@ -1,7 +1,7 @@
 /**
  * @author Adler Coelho Santos
  * @date 09/04/2016
- * @description This class is the controller of my index page 
+ * @description This class is the view of my index page 
  */
 class ViewFizzBuzz {
 

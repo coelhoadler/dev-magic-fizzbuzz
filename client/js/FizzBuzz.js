@@ -22,7 +22,7 @@ class FizzBuzz {
             this._multipleOfBoth = 0;
 
             this._aQuery = document.querySelector.bind(document); // AdlerQuery > jQuery hahahaha
-            this._viewFizzBuzz = new ViewFizzBuzz(this._aQuery("#numbers"), this._aQuery("#counters"));
+            this._viewFizzBuzz = new ViewFizzBuzz(this._aQuery("#buttons"), this._aQuery("#counters"));
 
             this.start();
         }
