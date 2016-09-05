@@ -5,15 +5,16 @@
  */
 class ViewFizzBuzz {
 
-    constructor(container) {
-        this.container = container;
+    constructor(container, counters) {
+        this._container = container;
+        this._counters  = counters;
     }
 
     // Render the button on HTML
     render(number, label=null) {
         
         let button = this._createButton(number, label);
-        this.container.appendChild(button);              
+        this._container.appendChild(button);              
     }
 
     // Create a new button
@@ -29,7 +30,6 @@ class ViewFizzBuzz {
         button.setAttribute("class", "btn " + classButton);
         button.setAttribute("type", "button");
         button.setAttribute("value", number);
-        console.log(button);
 
         return button;        
     }
@@ -46,5 +46,14 @@ class ViewFizzBuzz {
         }
 
         return value;
+    }
+
+    renderMultiples(noMultiple, multipleOfThree, multipleOfFive, multipleOfBoth) {
+        this._counters.innerHTML = `
+            <span class="label label-default">Não múltiplo (${noMultiple})</span>
+            <span class="label label-primary">Múltiplo de 3 (${multipleOfThree})</span>
+            <span class="label label-info">Múltiplo de 5 (${multipleOfFive})</span>
+            <span class="label label-success">Múltiplo de 3 e 5 (${multipleOfBoth})</span>        
+        `;
     }
 }

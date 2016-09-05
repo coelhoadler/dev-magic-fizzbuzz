@@ -11,13 +11,18 @@ class FizzBuzz {
      *  f = final value
      */
     constructor(i=1, f=100) {
-        
+        if (i == 0) i = 1;
         if (this._isValidNumber(i) && this._isValidNumber(f)) {
-            this.ini   = i;
-            this.final = f;
+            this._ini   = i;
+            this._final = f;
+
+            this._noMultiple = 0;
+            this._multipleOfThree = 0;
+            this._multipleOfFive = 0;
+            this._multipleOfBoth = 0;
 
             this._aQuery = document.querySelector.bind(document); // AdlerQuery > jQuery hahahaha
-            this._viewFizzBuzz = new ViewFizzBuzz(this._aQuery("#numbers"));
+            this._viewFizzBuzz = new ViewFizzBuzz(this._aQuery("#numbers"), this._aQuery("#counters"));
 
             this.start();
         }
@@ -53,7 +58,7 @@ class FizzBuzz {
     // Initialize array of numbers
     _startArrayOfNumbers() {
         this.multiples = new Array();        
-        for (var i = this.ini; i <= this.final; i++) {
+        for (var i = this._ini; i <= this._final; i++) {
             this.multiples.push(i);
         }
     }
@@ -64,18 +69,23 @@ class FizzBuzz {
         this.multiples.map((number) => {
             if (this._isMultipleOfBoth(number)) {
                 this._viewFizzBuzz.render(number, "FizzBuzz");
+                this._multipleOfBoth++;
             } else {
                 if (this._isMultipleOfThree(number)) {
                    this._viewFizzBuzz.render(number, "Fizz");
+                   this._multipleOfThree++;
                 } else {
                     if (this._isMultipleOfFive(number)) {
-                        this._viewFizzBuzz.render(number, "Buzz");                     
+                        this._viewFizzBuzz.render(number, "Buzz");
+                        this._multipleOfFive++;                     
                     } else {
                         this._viewFizzBuzz.render(number);
+                        this._noMultiple++;
                     }
                 }
             }          
-        });              
+        });
+        this._viewFizzBuzz.renderMultiples(this._noMultiple, this._multipleOfThree, this._multipleOfFive, this._multipleOfBoth);              
     }
 
 }
