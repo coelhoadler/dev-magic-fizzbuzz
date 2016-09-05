@@ -1,0 +1,5 @@
+* {margin: 0; padding: 0;}
+body, html {background-color: #494646; overflow-x: hidden;}
+.container {margin: 1%; width: 100%;}
+h1, p, span, label {color: #FFFFFF;}
+button {margin: 1%; width: 80px;}
