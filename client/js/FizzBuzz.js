@@ -13,18 +13,23 @@ class FizzBuzz {
     constructor(i=1, f=100) {
         if (i == 0) i = 1;
         if (this._isValidNumber(i) && this._isValidNumber(f)) {
-            this._ini   = i;
-            this._final = f;
+            if (f > 1) {
+                this._ini   = i;
+                this._final = f;
 
-            this._noMultiple = 0;
-            this._multipleOfThree = 0;
-            this._multipleOfFive = 0;
-            this._multipleOfBoth = 0;
+                // counters
+                this._noMultiple = 0;
+                this._multipleOfThree = 0;
+                this._multipleOfFive = 0;
+                this._multipleOfBoth = 0;
 
-            this._aQuery = document.querySelector.bind(document); // AdlerQuery > jQuery hahahaha
-            this._viewFizzBuzz = new ViewFizzBuzz(this._aQuery("#buttons"), this._aQuery("#counters"));
+                this._aQuery = document.querySelector.bind(document); // AdlerQuery > jQuery hahahaha
+                this._viewFizzBuzz = new ViewFizzBuzz(this._aQuery("#buttons"), this._aQuery("#counters"));
 
-            this.start();
+                this.start();
+            } else {
+                throw new Error("The initial number must be greater than final number.");
+            }
         }
     }
 
@@ -47,7 +52,7 @@ class FizzBuzz {
     _isValidNumber(number) {
         
         let _ret = false;
-        if (number && !isNaN(number)) {
+        if (number && !isNaN(number) && number % 1 == 0) {
             _ret = true;
         } else {
             throw new Error(`The value "${number}" is not a valid number.`);
